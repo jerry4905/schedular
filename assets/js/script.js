@@ -15,7 +15,7 @@ $(document).ready(function () {
 
         // loop over time blocks
         $(".time-block").each(function () {
-            var blockHour = parseInt($(this).attr("id").split(" "))
+            var blockHour = parseInt($(this).attr("id").split("hour-"))
 
             // check if we've moved past this time 
             if (blockHour < currentHour) {
@@ -28,7 +28,7 @@ $(document).ready(function () {
             else (blockHour > currentHour) ||
                 (blockHour > currentHour); {
                 $(this).removeClass("present");
-                $(this).addClass("soon");
+                $(this).addClass("future");
             }
         })
     }
@@ -47,17 +47,3 @@ $(document).ready(function () {
 
 });
 
-
-
-
-
-// link with container on html 
-
-// create function to display daily schedule 9 am to 5 pm
-
-// load from localStorage
-
-
-//save update to hour block to local storage
-
-// check if deadline is approaching or past due
