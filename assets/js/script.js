@@ -1,8 +1,6 @@
 
-
-
 $(document).ready(function () {
-    var today =    moment().format('MMMM Do YYYY, h:mm:ss a')
+    var today = moment().format('MMMM Do YYYY, h:mm:ss a')
     $("#currentDay").append(today);
     // listen for save button clicks 
     $(".saveBtn").on("click", function () {
@@ -17,19 +15,26 @@ $(document).ready(function () {
     function hourUpdate() {
         // get current number of hours
         var currentHour = moment().hours();
+        console.log(currentHour)
 
         // loop over time blocks
         $(".time-block").each(function () {
-            var blockHour = parseInt($(this).attr("id").split("hour-"))
+            var blockHour = parseInt($(this).attr("id").split("our-")[2]);
+            console.log(blockHour)
 
             // check if we've moved past this time 
             if (blockHour < currentHour) {
                 $(this).addClass("past");
             }
+
+            // if current hour change to present
             else if (blockHour === currentHour) {
                 $(this).removeClass("past");
+                $(this).removeClass("future")
                 $(this).addClass("present");
+
             }
+            // if in future add future
             else (blockHour > currentHour) ||
                 (blockHour > currentHour); {
                 $(this).removeClass("present");
@@ -46,8 +51,8 @@ $(document).ready(function () {
     $("#hour-3 .description").val(localStorage.getItem("hour-3"))
     $("#hour-4 .description").val(localStorage.getItem("hour-4"))
     $("#hour-4.description").val(localStorage.getItem("hour-5"))
-    
-    
+
+
     hourUpdate();
 
 });
