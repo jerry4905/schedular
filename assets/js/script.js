@@ -19,7 +19,7 @@ $(document).ready(function () {
 
         // loop over time blocks
         $(".time-block").each(function () {
-            var blockHour = parseInt($(this).attr("id").split("our-")[2]);
+            var blockHour = parseInt($(this).attr("id").split("-")[1]);
             console.log(blockHour)
 
             // check if we've moved past this time 
