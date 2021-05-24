@@ -1,4 +1,9 @@
+
+
+
 $(document).ready(function () {
+    var today =    moment().format('MMMM Do YYYY, h:mm:ss a')
+    $("#currentDay").append(today);
     // listen for save button clicks 
     $(".saveBtn").on("click", function () {
         // geat nearby values 
@@ -46,4 +51,8 @@ $(document).ready(function () {
     hourUpdate();
 
 });
+
+
+
+
 
